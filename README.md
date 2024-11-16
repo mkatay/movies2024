@@ -4,6 +4,7 @@
 - React Query
 - MUI
 - pagination
+- redirect
 - **Highly reusable components**
 ![components](./components.jpg)
 My site: [Movies](https://duckduckgo.com).
