@@ -10,8 +10,10 @@ import { motion } from "motion/react"
 import { DetailModal } from './DetailModal';
 
 
-export const SingleContent=({id,poster_path,title,name,media_type,release_date,first_air_date,vote_average})=> {
+export const SingleContent=({id,poster_path,title,name,media_type,release_date,first_air_date,vote_average,type})=> {
     const [open, setOpen] = React.useState(false);
+    console.log(media_type);
+    
     return ( 
         <>
     <Card sx={{ maxWidth: 250 }}>
@@ -34,7 +36,7 @@ export const SingleContent=({id,poster_path,title,name,media_type,release_date,f
       </CardActionArea>
       </motion.div>
     </Card>
-   {open && <DetailModal id={id} setOpen={setOpen} open={open} type={media_type}/>}
+   {open && <DetailModal id={id} setOpen={setOpen} open={open} type={media_type || type}/>}
     </>
   );
 }

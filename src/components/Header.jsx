@@ -38,8 +38,8 @@ export const Header=()=> {
 
   return (
     <>
-    <AppBar position="static" sx={{backgroundColor:bgcolor}}>
-      <Container maxWidth="xl">
+    <AppBar position="fixed" sx={{backgroundColor:bgcolor,top:0,zIndex:10}}>
+     <Container maxWidth="xl">
         <Toolbar disableGutters>
           <MovieIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           {/*mobil nézet*/}

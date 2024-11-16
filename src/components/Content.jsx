@@ -19,10 +19,10 @@ const style = {
     width: 300,
 }
 
-export const Content = ({url,type,name}) => {
+export const Content = ({url,name,type}) => {
   const [page, setPage] = useState(1);
   const { data,isLoading, isError,error } = useQuery({queryKey:[name, url + "&page=" + page],queryFn:getData});
-console.log(url);
+console.log(url)
 
   if (isLoading) 
     return <CircularProgress  color="secondary" size="3rem" sx={style}/>
@@ -37,7 +37,7 @@ console.log(url);
     <div style={{backgroundColor:bgcolor}}>
       <div className="content">
         {data.results.map((obj) => (
-            <SingleContent key={obj.id} {...obj} />
+            <SingleContent key={obj.id} {...obj} type={type} />
           ))}
         <ContentPagination page={page} setPage={setPage} numOfPage={data.total_pages>500? 500 : data.total_pages} />
       </div>

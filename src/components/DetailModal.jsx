@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getData, img_500, noPictureLandscape } from '../utils';
 import { CircularProgress } from '@mui/material';
 import { Carousel } from './Carousel';
-
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const style = {
   position: 'absolute',
@@ -77,6 +77,20 @@ console.log(dataDetails);
                 <span className="overview">{dataDetails?.overview}</span>  
           </Typography> 
              <Carousel id={id} type={type}/>
+             {dataVideos?.results && dataVideos.results.length>0 && <div>
+                    <Button
+                      className="video"
+                      variant='contained'
+                      startIcon={<YouTubeIcon />}
+                      color='secondary'
+                      target='_blank'
+                      href={`https://www.youtube.com/watch?v=${dataVideos?.results[0].key}`}
+                    >
+                      Watch the trailer
+                    </Button>
+                </div>
+             
+            }
         </Box>
      
       </Modal>
