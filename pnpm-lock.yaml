@@ -35,6 +35,9 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-alice-carousel:
+        specifier: ^2.9.1
+        version: 2.9.1(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -1420,6 +1423,11 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  react-alice-carousel@2.9.1:
+    resolution: {integrity: sha512-/wQE4cqogKL/db+SoiiRmdj5j6C9I31pfzrmz8nuXmWmSl/UxxJz/O92W/ryxicTw1au+3mUW+drU3ZAhF3JPA==}
+    peerDependencies:
+      react: '>=15.4'
+
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
@@ -1612,6 +1620,9 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  vanilla-swipe@2.4.1:
+    resolution: {integrity: sha512-o6pfI0dipet88ZnPLV4Jx04Ia+U3xANh14vhROW2TOe/mrwk2JGG68+Z0BPoD1YUcQQEnK4SZBXkqFe+K1l7/w==}
 
   vite@5.4.10:
     resolution: {integrity: sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==}
@@ -3099,6 +3110,11 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  react-alice-carousel@2.9.1(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      vanilla-swipe: 2.4.1
+
   react-dom@18.3.1(react@18.3.1):
     dependencies:
       loose-envify: 1.4.0
@@ -3368,6 +3384,8 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  vanilla-swipe@2.4.1: {}
 
   vite@5.4.10:
     dependencies:

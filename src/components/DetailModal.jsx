@@ -5,34 +5,51 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useQuery } from '@tanstack/react-query';
 import { getData, img_500, noPictureLandscape } from '../utils';
+import { CircularProgress } from '@mui/material';
+import { Carousel } from './Carousel';
+
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  maxWidth: 600,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  display:'flex',
+  flexDirection:'column'
 };
+const spinnerStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 300,
+}
 
 export const DetailModal=({open,setOpen,id,type})=> {
     
   const urlDetails=`https://api.themoviedb.org/3/${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}`;
-  const {data:dataDetails,status:statusDetails}=useQuery({queryKey:['details',urlDetails],queryFn:getData})
+  const {data:dataDetails,isLoading:isLoadingDetails,isError:isErrorDetails}=useQuery({queryKey:['details',urlDetails],queryFn:getData})
 
   const urlVideos=`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}`;
-  const {data:dataVideos,status:statusVideos}= type=='movie' ? useQuery({queryKey:['videos',urlVideos],queryFn:getData}):{}
+  const {data:dataVideos,isLoading:isLoadingVideos,isError:isErrorVideos}= type=='movie' ? useQuery({queryKey:['videos',urlVideos],queryFn:getData}):{}
 /*console.log(id,type);
 console.log(urlDetails);
 console.log(urlVideos);*/
+if (isLoadingDetails || isLoadingVideos) 
+    return <CircularProgress color="secondary" size="3rem"sx={spinnerStyle}/>
+
+  if (isErrorDetails || isErrorVideos) 
+    return <div>Error occurred while fetching data! </div>;
+  
 
 
-
-  statusDetails=='success'&& console.log(dataDetails);
-  statusVideos=='success'&& console.log(dataVideos.results);
+console.log(dataDetails);
+  //console.log(dataVideos.results);
   
   
   const handleClose = () => setOpen(false);
@@ -44,21 +61,24 @@ console.log(urlVideos);*/
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        sx={{overflowY:'scroll' }}
       >
         <Box sx={style}>
-        <div >
+           
                <img style={{width:'100%'}} src={dataDetails.backdrop_path ? img_500+dataDetails.backdrop_path : noPictureLandscape} 
                     alt={dataDetails?.title || dataDetails?.name}   />
-              </div>
+       
           {/*<Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>*/}
           <Typography id="modal-modal-description" sx={{ mt: 2,display:'flex',flexDirection:'column',alignItems: 'center'}} > 
-                <div><b>{dataDetails?.title || dataDetails?.name}</b>({(dataDetails?.release_date||dataDetails?.first_air_date)||dataDetails?.published_at})</div>
-                <div style={{color:'blue'}}><i>{dataDetails?.tagline}</i></div>
-                <div className="overview">{dataDetails?.overview}</div>  
-          </Typography>
+                <span><b>{dataDetails?.title || dataDetails?.name}</b>({(dataDetails?.release_date||dataDetails?.first_air_date)||dataDetails?.published_at})</span>
+                <span style={{color:'blue'}}><i>{dataDetails?.tagline}</i></span>
+                <span className="overview">{dataDetails?.overview}</span>  
+          </Typography> 
+             <Carousel id={id} type={type}/>
         </Box>
+     
       </Modal>
     </div>
   );
