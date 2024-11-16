@@ -7,4 +7,4 @@
 - redirect
 - **Highly reusable components**
 ![components](./components.jpg)
-My site: [Movies](https://duckduckgo.com).
+My site: [Movies](https://kamsmovie.netlify.app/).
