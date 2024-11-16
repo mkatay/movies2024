@@ -8,6 +8,6 @@ const urlMovies=`https://api.themoviedb.org/3/trending/movie/day?api_key=${impor
 
 export const Movies = (/*{urlForGenre}*/) => {
   return(
-  <Content url={urlMovies} media_type='movies'name='movies'/>
+  <Content url={urlMovies} type='movies'name='movies'/>
   )
 }

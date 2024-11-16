@@ -34,7 +34,7 @@ export const SingleContent=({id,poster_path,title,name,media_type,release_date,f
       </CardActionArea>
       </motion.div>
     </Card>
-   {open && <DetailModal setOpen={setOpen} open={open}/>}
+   {open && <DetailModal id={id} setOpen={setOpen} open={open} type={media_type}/>}
     </>
   );
 }

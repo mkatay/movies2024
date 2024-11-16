@@ -4,6 +4,6 @@ const urlSeries=`https://api.themoviedb.org/3/trending/tv/day?api_key=${import.m
 
 export const TVSeries = () => {
   return (
- <Content url={urlSeries} media_type='TV'name='series'/>
+ <Content url={urlSeries} type='tv'name='series'/>
 )
 }

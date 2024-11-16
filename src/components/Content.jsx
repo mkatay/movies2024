@@ -10,7 +10,7 @@ import { ContentPagination } from "../components/ContentPagination";
 
 const bgcolor= deepPurple[600];
 
-export const Content = ({url,media_type,name}) => {
+export const Content = ({url,type,name}) => {
   const [page, setPage] = useState(1);
   const { data,isLoading, isError,error } = useQuery({queryKey:[name, url + "&page=" + page],queryFn:getData});
 console.log(url);
@@ -22,13 +22,13 @@ console.log(url);
   if (isError) {
     return <div>Error occurred while fetching data! {error.message}</div>;
   }
-  //console.log(data.results,data.total_pages);
+  console.log(data.results,data.total_pages);
 
   return (
     <div style={{backgroundColor:bgcolor}}>
       <div className="content">
         {data.results.map((obj) => (
-            <SingleContent key={obj.id} {...obj}  {...(media_type !== null && { media_type })}/>
+            <SingleContent key={obj.id} {...obj} />
           ))}
         <ContentPagination page={page} setPage={setPage} numOfPage={data.total_pages>500? 500 : data.total_pages} />
       </div>

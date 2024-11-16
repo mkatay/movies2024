@@ -5,6 +5,6 @@ const urlTrending = `https://api.themoviedb.org/3/trending/all/day?api_key=${imp
 
 export const Trendings = () => {
    return (
-   <Content url={urlTrending} name='trendings' media_type={null}/>
+   <Content url={urlTrending} name='trendings' type={null}/>
   );
 };
