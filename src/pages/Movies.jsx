@@ -12,10 +12,10 @@ export const Movies = () => {
   const [urlForGenre,setUrlForGenre] =useState('')
 
   return(
-    <>
+    <div  style={{paddingTop:'60px'}}>
     <Genres type='movie' setUrlForGenre={setUrlForGenre}/>
     <Content url={urlMovies+"&with_genres="+urlForGenre} name='movies' type='movie'/>
-    </>
+    </div>
   
   )
 }

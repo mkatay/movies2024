@@ -7,9 +7,9 @@ const urlSeries=`https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.
 export const TVSeries = () => {
   const [urlForGenre,setUrlForGenre] =useState('')
   return (
-  <>
+  <div style={{paddingTop:'60px'}}>
    <Genres type='tv' setUrlForGenre={setUrlForGenre}/>
   <Content url={urlSeries+"&with_genres="+urlForGenre} name='series' type='tv'/>
- </>
+ </div>
 )
 }
