@@ -1,0 +1,22 @@
+import * as React from 'react';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
+export const ContentPagination=({ page,setPage, numOfPage = 10 })=>{
+
+    const handleChange = (event,p) => {
+        console.log('oldal:',p);
+        setPage(p);
+         window.scrollTo(0, 0);
+      };
+  return (
+    <Stack spacing={2}>
+     
+      <Pagination count={numOfPage} variant="outlined" shape="rounded" 
+       size="large"
+       page={page}
+       onChange={handleChange}
+      />
+    </Stack>
+  );
+}

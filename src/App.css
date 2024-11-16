@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+/*navbar style:*/
+.active {
+   color: #b39ddb!important;
+  
+}
+.inactiv{
+    color:white;
+}
+a{
+    text-decoration: none!important;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:15px;
+    padding: 10px;
+}
+.css-39f4bj-MuiButtonBase-root-MuiPaginationItem-root{
+    background-color: #b39ddb!important;
+}
+.css-39f4bj-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    background-color: #634e89!important;
+    color:aliceblue;
+}
