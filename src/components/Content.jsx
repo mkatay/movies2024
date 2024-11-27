@@ -9,7 +9,7 @@ import { deepPurple } from '@mui/material/colors';
 import { ContentPagination } from "../components/ContentPagination";
 import { CircularProgress } from "@mui/material";
 
-const bgcolor= deepPurple[600];
+const bgcolor= deepPurple[400];
 
 const style = {
     position: 'absolute',

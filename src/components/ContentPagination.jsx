@@ -10,7 +10,7 @@ export const ContentPagination=({ page,setPage, numOfPage = 10 })=>{
          window.scrollTo(0, 0);
       };
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} sx={{width:'100%'}}>
      
       <Pagination count={numOfPage} variant="outlined" shape="rounded" 
        size="large"

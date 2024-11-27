@@ -6,7 +6,7 @@ import { Movies } from './pages/Movies';
 import { TVSeries } from './pages/TVSeries';
 import { NotFound } from './pages/NotFound';
 import { Header } from './components/Header';
-import { Search } from './pages/Search';
+import { SearchPage } from './pages/SearchPage';
 
 const router = createBrowserRouter([
   {element:<Header/>,
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
       path: '/search',
-      element: <Search />,
+      element: <SearchPage />,
     },
     {path:"*",
       element:<NotFound/>
